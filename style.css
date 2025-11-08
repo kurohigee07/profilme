@@ -8,8 +8,8 @@
 body {
     font-family: 'Poppins', sans-serif;
     color: white;
-    /* GANTI 'background.jpg' dengan nama file gambar background Anda */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('bg-cool.jpg.');
+    /* GANTI 'background-foto-anda.jpg' dan hapus linear-gradient */
+    background-image: url('bg-cool.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -18,63 +18,114 @@ body {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    background-attachment: fixed; /* Opsi agar background tidak bergerak saat scroll */
 }
 
-/* Kontainer utama */
+/* Kontainer utama (diubah agar lebih modern) */
 .container {
     width: 100%;
     max-width: 400px;
     text-align: center;
-    padding: 30px;
-    background: rgba(0, 0, 0, 0.3); /* Latar belakang transparan untuk konten */
-    backdrop-filter: blur(10px); /* Efek blur untuk background */
+    padding: 30px 20px;
+    background: rgba(0, 0, 0, 0.5); /* Background sedikit transparan */
     border-radius: 15px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Foto Profil */
 .profile {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .profile img {
     width: 100px;
     height: 100px;
-    border-radius: 50%; /* Membuat gambar menjadi bulat */
-    border: 3px solid white;
-    /* GANTI 'profile-pic.jpg' dengan nama file foto profil Anda */
-    object-fit: cover; /* Memastikan gambar tidak gepeng */
+    border-radius: 50%;
+    border: 4px solid white; /* Border yang sedikit lebih tebal */
+    object-fit: cover;
 }
 
 /* Nama Pengguna */
 .username {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 /* Tombol Link */
 .links {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Jarak antar tombol */
+    gap: 15px;
 }
 
+/* Styling dasar tombol */
 .link-button {
     display: block;
-    background-color: white;
-    color: #333;
+    background-color: transparent; /* Buat tombol transparan */
+    color: white;
     text-decoration: none;
     padding: 15px;
     border-radius: 8px;
     font-size: 1rem;
     font-weight: 500;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    position: relative;
+    overflow: hidden; /* Penting untuk animasi shine/border */
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
 }
 
-/* Efek saat kursor menyentuh tombol */
+/* Styling Ikon */
+.link-button i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+/* ---------------------------------- */
+/* ANiMASI INTERAKTIF */
+/* ---------------------------------- */
+
+/* Efek BORDER GLOW saat kursor menyentuh tombol */
 .link-button:hover {
-    transform: scale(1.05); /* Sedikit membesar */
-    background-color: #f0f0f0;
+    transform: translateY(-3px); /* Tombol terangkat sedikit */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Efek cahaya di sekitar tombol */
+    border-color: white; /* Border menjadi putih terang */
+}
+
+/* Efek SHINE/CAHAYA di dalam tombol (Saat kursor menyentuh tombol) */
+.link-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1); /* Cahaya putih transparan */
+    transform: skewX(-30deg);
+    transition: all 0.7s ease;
+}
+
+.link-button:hover::before {
+    left: 100%; /* Cahaya bergerak dari kiri ke kanan */
+}
+
+/* Warna Khusus untuk Ikon/Tombol (Optional) */
+.instagram:hover {
+    color: #e4405f; /* Warna Instagram */
+    border-color: #e4405f;
+    box-shadow: 0 0 15px #e4405f;
+}
+
+.tiktok:hover {
+    color: #69C9D0; /* Warna TikTok */
+    border-color: #69C9D0;
+    box-shadow: 0 0 15px #69C9D0;
+}
+
+.github:hover {
+    color: #5d6d84; /* Warna GitHub */
+    border-color: #5d6d84;
+    box-shadow: 0 0 15px #5d6d84;
 }
 
 /* Footer */
