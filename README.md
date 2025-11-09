@@ -22,5 +22,4 @@ Daftar berikut merangkum teknologi dan alat yang sering saya gunakan:
 ### **Kontak**
 Untuk pertanyaan atau kolaborasi, silakan hubungi saya melalui:
 
-* **Email:** `[auto.send567@gma
-* il.com]`
+* **Email:** `[auto.send567@gmail.com]`
